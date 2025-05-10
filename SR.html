@@ -3,62 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SR Company - Welcome</title>
+    <title>SR Company - Apply Now</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        .page {
+            display: none;
+            padding: 20px;
+        }
         .home {
-            background-image: url('C:/Users/Admin/Desktop/professional-business-corporate-texture-a-background-for_9931081.jpg!w700wp');
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
             color: white;
         }
         .home img {
             width: 150px;
             height: auto;
+            margin-bottom: 20px;
         }
         .home button {
-            margin-top: 20px;
             padding: 15px 30px;
+            font-size: 18px;
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 18px;
             cursor: pointer;
         }
         .home button:hover {
             background-color: #0056b3;
         }
         .form-page, .department-page, .motive-page {
+            min-height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
             display: none;
-            padding: 20px;
-        }
-        .form-page {
-            background-image: url('using-computerhand-typing-keyboard-laptop-600nw-1774949384.webp');
-            background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-        }
-        .department-page {
-            background-image: url('flat-lay-workstation-with-copy-space-laptop_23-2148430879.avif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-        }
-        .motive-page {
-            background-image: url('stock-vector-teamwork-word-cloud-template-business-concept-vector-background-2111396573.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 100vh;
         }
         .container {
             max-width: 800px;
@@ -66,13 +53,18 @@
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            color: black;
         }
-        button {
-            display: block;
+        input, select, textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 100px;
+            margin: 10px 5px 0 0;
             background-color: #007BFF;
             color: white;
             border: none;
@@ -82,30 +74,26 @@
         button:hover {
             background-color: #0056b3;
         }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
         textarea {
             background-color: #E0FFFF;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
 <body>
     <!-- Home Page -->
-    <div class="home">
-        <img src="C:/Users/Admin/Desktop/istockphoto-1325438825-612x612.jpg" alt="SR Company Logo">
-        <h1>Welcome to SR Company</h1>
-        <p>Your dream career starts here. We are thrilled to have you apply for a position at SR Company!</p>
+    <div class="home" style="background-image: url('professional-business-corporate-texture-a-background-for_9931081.jpg!w700wp');">
+        <img src="C:\Users\Admin\Desktop\istockphoto-1325438825-612x612.jpg" alt="SR Company Logo">
+        <b><h1>Welcome to SR Company</h1></b>
+        <b><p>Your dream career starts here. We are thrilled to have you apply for a position at SR Company!</p></b>
         <button id="applyNow">Apply Now</button>
     </div>
 
-    <!-- Form Page -->
-    <div class="form-page">
+    <!-- Applicant Detail Form Page -->
+    <div class="form-page page" style="background-image: url('using-computerhand-typing-keyboard-laptop-600nw-1774949384.webp');">
         <div class="container">
             <h2>Applicant Details</h2>
             <form id="applicantForm">
@@ -127,17 +115,20 @@
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
 
-                <label for="cvUpload">Upload Your CV:</label>
-                <input type="file" id="cvUpload" name="cvUpload" accept=".pdf,.doc,.docx" required>
+                <label for="cv">Upload CV:</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
 
-                <button type="reset">Reset</button>
-                <button type="button" id="nextToDepartment">Next</button>
+                <div class="actions">
+                    <button type="reset">Reset</button>
+                    <button type="button" id="nextToDepartment">Next</button>
+                </div>
             </form>
+            <button id="backToHome">Back</button>
         </div>
     </div>
 
     <!-- Department Page -->
-    <div class="department-page">
+    <div class="department-page page" style="background-image:url('flat-lay-workstation-with-cup-tea-notebooks_23-2148430860.avif');">
         <div class="container">
             <h2>Job Preferences</h2>
             <form id="departmentForm">
@@ -152,55 +143,72 @@
                 <label for="position">Desired Position:</label>
                 <input type="text" id="position" name="position" required>
 
-                <label for="salary">Expected Salary:</label>
+                <label for="salary">Expected Salary (in Lakh):</label>
                 <input type="number" id="salary" name="salary" required>
 
-                <button type="button" id="nextToMotive">Next</button>
+                <div class="actions">
+                    <button type="button" id="backToForm">Back</button>
+                    <button type="button" id="nextToMotive">Next</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- Motive Page -->
-    <div class="motive-page">
+    <!-- Motivation Page -->
+    <div class="motive-page page" style="background-image: url('stock-vector-teamwork-word-cloud-template-business-concept-vector-background-2111396573.jpg');">
         <div class="container">
             <h2>Your Motivation</h2>
             <form id="motiveForm">
                 <label for="motive">Why do you want to join SR Company?</label>
-                <textarea id="motive" name="motive" required></textarea>
-                <button type="submit">Submit</button>
+                <textarea id="motive" name="motive" rows="5" required></textarea>
+                <div class="actions">
+                    <button type="button" id="backToDepartment">Back</button>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
     </div>
 
     <script>
-        const applyNowButton = document.getElementById('applyNow');
-        const nextToDepartmentButton = document.getElementById('nextToDepartment');
-        const nextToMotiveButton = document.getElementById('nextToMotive');
-        const submitButton = document.getElementById('motiveForm');
-        const homePage = document.querySelector('.home');
-        const formPage = document.querySelector('.form-page');
-        const departmentPage = document.querySelector('.department-page');
-        const motivePage = document.querySelector('.motive-page');
+        const pages = {
+            home: document.querySelector('.home'),
+            formPage: document.querySelector('.form-page'),
+            departmentPage: document.querySelector('.department-page'),
+            motivePage: document.querySelector('.motive-page')
+        };
 
-        applyNowButton.addEventListener('click', () => {
-            homePage.style.display = 'none';
-            formPage.style.display = 'block';
+        document.getElementById('applyNow').addEventListener('click', () => {
+            togglePage('home', 'formPage');
         });
 
-        nextToDepartmentButton.addEventListener('click', () => {
-            formPage.style.display = 'none';
-            departmentPage.style.display = 'block';
+        document.getElementById('nextToDepartment').addEventListener('click', () => {
+            togglePage('formPage', 'departmentPage');
         });
 
-        nextToMotiveButton.addEventListener('click', () => {
-            departmentPage.style.display = 'none';
-            motivePage.style.display = 'block';
+        document.getElementById('backToHome').addEventListener('click', () => {
+            togglePage('formPage', 'home');
         });
 
-        submitButton.addEventListener('submit', (e) => {
+        document.getElementById('nextToMotive').addEventListener('click', () => {
+            togglePage('departmentPage', 'motivePage');
+        });
+
+        document.getElementById('backToForm').addEventListener('click', () => {
+            togglePage('departmentPage', 'formPage');
+        });
+
+        document.getElementById('backToDepartment').addEventListener('click', () => {
+            togglePage('motivePage', 'departmentPage');
+        });
+
+        function togglePage(hide, show) {
+            pages[hide].style.display = 'none';
+            pages[show].style.display = 'block';
+        }
+
+        document.getElementById('motiveForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Application submitted successfully! An email will be sent.');
-            // Place email submission functionality here
+            alert('Application submitted successfully! Your details have been sent to shumailaramzan925@gmail.com.');
         });
     </script>
 </body>
